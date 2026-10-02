@@ -1,0 +1,6 @@
+{
+  "name": "DreamTech Software Designer",
+  "description": "Ecosistema de software inteligente potenciado con IA, arquitectura SaaS pospago e invitaciones digitales interactivas con ticketing táctil.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
