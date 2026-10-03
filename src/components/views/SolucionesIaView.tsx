@@ -2,6 +2,27 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { TELEMETRY_LOGS } from '../../data/mockData';
 import { TabType } from '../../types';
+import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Separator } from '@/components/ui/separator';
+import {
+  Terminal,
+  Cpu,
+  Wallet,
+  Cloud,
+  RefreshCw,
+  Zap,
+  ShieldCheck,
+  Layers,
+  Activity,
+  WifiOff,
+  Database,
+  ArrowRight,
+  Server,
+  BarChart3,
+  Bot,
+} from 'lucide-react';
 
 interface SolucionesIaViewProps {
   onNavigateTab: (tab: TabType) => void;
@@ -28,110 +49,99 @@ export const SolucionesIaView: React.FC<SolucionesIaViewProps> = ({ onNavigateTa
   };
 
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col space-y-12 sm:space-y-16">
       {/* SECTION HEADER */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-10 sm:py-16 max-w-[1400px] mx-auto w-full text-center">
+      <section className="relative px-4 sm:px-6 lg:px-8 py-8 sm:pt-10 max-w-[1400px] mx-auto w-full text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="relative z-10 flex flex-col items-center max-w-4xl mx-auto space-y-4"
         >
-          {/* Specular Micro-kicker */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full vision-glass-pill shadow-lg">
-            <span className="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
-            <span className="text-[11px] sm:text-xs font-semibold text-sky-300 tracking-widest uppercase">
-              Ingeniería de Vanguardia · Ergonomía visionOS
+          <Badge variant="outline" className="gap-2 py-1 px-4 border-white/10 bg-white/5 text-slate-300">
+            <span className="w-2 h-2 rounded-full bg-emerald-400" />
+            <span className="text-xs font-medium tracking-wide">
+              Ingeniería de Software · Despliegues Cloud Empresariales
             </span>
-          </div>
+          </Badge>
 
-          {/* Main Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl text-white font-extrabold tracking-tight leading-tight">
-            Ecosistema de Software Inteligente{' '}
-            <span className="bg-gradient-to-r from-sky-300 via-indigo-200 to-purple-300 bg-clip-text text-transparent">
-              Potenciado con IA
+            Infraestructura Cloud &amp;{' '}
+            <span className="text-slate-400">
+              Sistemas de Alto Rendimiento
             </span>
           </h1>
 
-          {/* Subtitle */}
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
-            Arquitecturas serverless y multi-cloud diseñadas para alta disponibilidad, analítica predictiva y
-            automatización sin fricción.
+            Diseñamos y desplegamos arquitecturas escalables, bases de datos resilientes y plataformas web de alta disponibilidad en Google Cloud, AWS y Azure.
           </p>
 
-          {/* Metrics Inline List */}
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-slate-300">
-            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full vision-glass shadow-sm">
-              <span className="material-symbols-outlined text-[16px] text-sky-400">bolt</span>
-              <span className="font-semibold text-white">Latencia &lt; 15ms</span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full vision-glass shadow-sm">
-              <span className="material-symbols-outlined text-[16px] text-sky-400">verified_user</span>
-              <span className="font-semibold text-white">SOC2 Tipo II Compliant</span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full vision-glass shadow-sm">
-              <span className="material-symbols-outlined text-[16px] text-purple-300">cloud_sync</span>
-              <span className="font-semibold text-white">Zero-Downtime Migration</span>
-            </div>
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm text-slate-300">
+            <Badge variant="outline" className="gap-2 py-1.5 px-3.5">
+              <Zap className="w-3.5 h-3.5 text-sky-400" />
+              <span className="font-semibold text-white">Latencia Global &lt; 15ms</span>
+            </Badge>
+            <Badge variant="outline" className="gap-2 py-1.5 px-3.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
+              <span className="font-semibold text-white">Seguridad Cifrada TLS/AES</span>
+            </Badge>
+            <Badge variant="outline" className="gap-2 py-1.5 px-3.5">
+              <Cloud className="w-3.5 h-3.5 text-sky-400" />
+              <span className="font-semibold text-white">Migración Zero-Downtime</span>
+            </Badge>
           </div>
         </motion.div>
       </section>
 
-      {/* INTERACTIVE SPATIAL CONSOLE: DreamTech OS v2.4 */}
-      <section className="px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto w-full mb-16">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative rounded-3xl vision-glass-elevated p-5 sm:p-8"
-        >
+      {/* INTERACTIVE SPATIAL CONSOLE */}
+      <section className="px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto w-full">
+        <Card className="rounded-3xl border-white/15 bg-slate-950/80 p-5 sm:p-8 shadow-2xl backdrop-blur-2xl">
           {/* Console Header Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-4 mb-6 bg-slate-950/60 border border-white/10 p-4 rounded-2xl shadow-inner">
+          <div className="flex flex-wrap items-center justify-between gap-4 pb-4 mb-6 bg-slate-900/80 border border-white/10 p-4 rounded-2xl shadow-inner">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-rose-400/80"></span>
-                <span className="w-3 h-3 rounded-full bg-amber-400/80"></span>
-                <span className="w-3 h-3 rounded-full bg-emerald-400/80"></span>
+                <span className="w-3 h-3 rounded-full bg-rose-400/80" />
+                <span className="w-3 h-3 rounded-full bg-amber-400/80" />
+                <span className="w-3 h-3 rounded-full bg-emerald-400/80" />
               </div>
-              <div className="h-4 w-px bg-white/20"></div>
+              <Separator orientation="vertical" className="h-4 bg-white/20" />
               <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-sky-400 text-[20px]">terminal</span>
+                <Terminal className="w-4 h-4 text-sky-400" />
                 <span className="text-xs sm:text-sm text-white font-medium tracking-wide">
-                  DreamTech OS v2.4 <span className="text-slate-400 font-normal">Spatial Console</span>
+                  DreamTech Console <span className="text-slate-400 font-normal">Monitor de Nube</span>
                 </span>
               </div>
             </div>
 
-            {/* Mode Indicator / Live Nodes */}
             <div className="flex items-center gap-2">
-              <span className="text-[10px] sm:text-xs font-semibold text-sky-300 uppercase tracking-wider px-3.5 py-1 rounded-full bg-sky-500/15 border border-sky-400/30">
-                Multi-Cloud Ingestion: Nominal
-              </span>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
+              <Badge variant="outline" className="text-xs text-emerald-400 border-emerald-500/25 bg-emerald-500/10">
+                Sistemas Cloud: 100% Operativos
+              </Badge>
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
             </div>
           </div>
 
           {/* Telemetry Grid (3 Cards) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
-            {/* Card 1: LLM Agent */}
-            <div className="p-5 sm:p-6 rounded-2xl vision-glass-interactive flex flex-col justify-between space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5 text-left">
+            {/* Card 1: Backend API Performance */}
+            <Card className="p-5 sm:p-6 border-white/10 bg-slate-900/60 flex flex-col justify-between space-y-4">
               <div className="flex items-start justify-between">
                 <div>
                   <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                    Agente Cognitivo LLM
+                    Disponibilidad API &amp; Microservicios
                   </span>
-                  <div className="text-3xl font-extrabold text-white mt-1">99.4%</div>
+                  <div className="text-3xl font-extrabold text-white mt-1">99.98%</div>
                 </div>
-                <div className="w-10 h-10 rounded-2xl bg-sky-500/20 border border-sky-400/30 flex items-center justify-center text-sky-300 shadow-inner">
-                  <span className="material-symbols-outlined text-[20px]">neurology</span>
+                <div className="w-10 h-10 rounded-xl bg-sky-500/15 border border-sky-400/20 flex items-center justify-center text-sky-300">
+                  <Activity className="w-5 h-5" />
                 </div>
               </div>
 
               {/* Sparkline Chart */}
               <div className="w-full">
                 <div className="flex justify-between text-xs text-slate-300 mb-1">
-                  <span>Latencia Promedio</span>
-                  <span className="text-sky-300 font-semibold">12ms · P99</span>
+                  <span>Latencia Media</span>
+                  <span className="text-sky-300 font-semibold">14ms · P99</span>
                 </div>
                 <svg className="w-full h-10 text-sky-400" preserveAspectRatio="none" viewBox="0 0 100 24">
                   <path
@@ -145,13 +155,13 @@ export const SolucionesIaView: React.FC<SolucionesIaViewProps> = ({ onNavigateTa
               </div>
 
               <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
-                <span>Inferencia RAG</span>
-                <span className="text-sky-300 font-semibold">Tiempo real</span>
+                <span>Rendimiento Global</span>
+                <span className="text-white font-medium">Nominal</span>
               </div>
-            </div>
+            </Card>
 
             {/* Card 2: Flexible Financial Model */}
-            <div className="p-5 sm:p-6 rounded-2xl vision-glass-interactive flex flex-col justify-between space-y-4">
+            <Card className="p-5 sm:p-6 border-white/10 bg-slate-900/60 flex flex-col justify-between space-y-4">
               <div className="flex items-start justify-between">
                 <div>
                   <span className="text-[11px] font-semibold text-purple-300 uppercase tracking-wider">
@@ -159,8 +169,8 @@ export const SolucionesIaView: React.FC<SolucionesIaViewProps> = ({ onNavigateTa
                   </span>
                   <div className="text-3xl font-extrabold text-white mt-1">Pospago</div>
                 </div>
-                <div className="w-10 h-10 rounded-2xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300 shadow-inner">
-                  <span className="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+                <div className="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300 shadow-inner">
+                  <Wallet className="w-5 h-5" />
                 </div>
               </div>
 
@@ -183,10 +193,10 @@ export const SolucionesIaView: React.FC<SolucionesIaViewProps> = ({ onNavigateTa
                 <span>Riesgo Financiero</span>
                 <span className="text-emerald-400 font-semibold">0% Garantizado</span>
               </div>
-            </div>
+            </Card>
 
-            {/* Card 3: Multi-Cloud Mesh (NUBE, Google Cloud, AWS y Azure) */}
-            <div className="p-5 sm:p-6 rounded-2xl vision-glass-interactive flex flex-col justify-between space-y-4">
+            {/* Card 3: Multi-Cloud Mesh */}
+            <Card className="p-5 sm:p-6 border-white/10 bg-slate-900/60 flex flex-col justify-between space-y-4">
               <div className="flex items-start justify-between">
                 <div>
                   <span className="text-[11px] font-semibold text-sky-300 uppercase tracking-wider">
@@ -194,12 +204,11 @@ export const SolucionesIaView: React.FC<SolucionesIaViewProps> = ({ onNavigateTa
                   </span>
                   <div className="text-3xl font-extrabold text-white mt-1">SLA 99.99%</div>
                 </div>
-                <div className="w-10 h-10 rounded-2xl bg-sky-500/20 border border-sky-400/30 flex items-center justify-center text-sky-300 shadow-inner">
-                  <span className="material-symbols-outlined text-[20px]">cloud_sync</span>
+                <div className="w-10 h-10 rounded-xl bg-sky-500/20 border border-sky-400/30 flex items-center justify-center text-sky-300 shadow-inner">
+                  <Cloud className="w-5 h-5" />
                 </div>
               </div>
 
-              {/* 3 Multi-Cloud Nodes requested by user */}
               <div className="grid grid-cols-3 gap-2 py-1">
                 <div className="flex flex-col items-center justify-center p-2 rounded-xl bg-slate-950/60 border border-white/5 text-center">
                   <span className="text-xs font-bold text-sky-300">Google Cloud</span>
@@ -219,11 +228,11 @@ export const SolucionesIaView: React.FC<SolucionesIaViewProps> = ({ onNavigateTa
                 <span>Sincronización Multi-Cloud</span>
                 <span className="text-sky-300 font-semibold">Activa &amp; Redundante</span>
               </div>
-            </div>
+            </Card>
           </div>
 
-          {/* Live Stream Console Output & Simulated Terminal */}
-          <div className="rounded-2xl bg-slate-950/80 border border-white/10 p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 shadow-inner">
+          {/* Live Stream Console Output */}
+          <div className="rounded-2xl bg-slate-950/90 border border-white/10 p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 shadow-inner">
             <div className="flex items-center gap-2 overflow-hidden flex-1">
               <span className="text-sky-400 font-mono text-xs tracking-tight whitespace-nowrap">
                 &gt; sys.telemetry.hook:
@@ -236,60 +245,56 @@ export const SolucionesIaView: React.FC<SolucionesIaViewProps> = ({ onNavigateTa
                 {TELEMETRY_LOGS[logIndex]}
               </span>
             </div>
-            <button
+            <Button
+              variant="outline"
+              size="sm"
               onClick={cycleLog}
-              className="px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer shrink-0 active:scale-95"
+              className="text-xs gap-1.5 shrink-0"
             >
-              <span className="material-symbols-outlined text-[14px]">refresh</span>
+              <RefreshCw className="w-3.5 h-3.5" />
               <span>Refrescar Registro</span>
-            </button>
+            </Button>
           </div>
-        </motion.div>
+        </Card>
       </section>
 
-      {/* BENTO GRID: LAS 4 CAPAS OPERATIVAS (Agentes autónomos eliminados a solicitud del usuario) */}
-      <section className="px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto w-full mb-16">
-        <div className="flex flex-col mb-8 text-left">
-          <span className="text-xs font-semibold text-sky-400 tracking-widest uppercase">
+      {/* BENTO GRID: LAS 4 CAPAS OPERATIVAS */}
+      <section className="px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto w-full">
+        <div className="flex flex-col mb-8 text-left space-y-1">
+          <Badge variant="glow" className="w-fit text-xs">
             Estructura Modular Integrada
-          </span>
-          <h2 className="text-2xl sm:text-4xl text-white font-bold tracking-tight mt-1">
+          </Badge>
+          <h2 className="text-2xl sm:text-4xl text-white font-bold tracking-tight">
             Las 4 Capas Operativas de DreamTech
           </h2>
-          <p className="text-xs sm:text-sm text-slate-300 mt-1">
+          <p className="text-xs sm:text-sm text-slate-300">
             Arquitectura de capas interconectadas diseñadas para despliegue sin fricción.
           </p>
         </div>
 
-        {/* Balanced 4-Layer Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-          
-          {/* CAPA 1: Landing Pages de Alto Rendimiento */}
-          <motion.div
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.2 }}
-            className="rounded-3xl vision-glass p-6 sm:p-8 flex flex-col justify-between text-left"
-          >
+        {/* 4-Layer Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch text-left">
+          {/* CAPA 1 */}
+          <Card className="p-6 sm:p-8 flex flex-col justify-between border-white/10 bg-slate-900/50 hover:border-white/20 transition-all">
             <div>
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-2xl bg-sky-500/20 border border-sky-400/30 flex items-center justify-center text-sky-300">
-                    <span className="material-symbols-outlined text-[24px]">speed</span>
+                  <div className="w-11 h-11 rounded-xl bg-sky-500/20 border border-sky-400/30 flex items-center justify-center text-sky-300">
+                    <Zap className="w-6 h-6" />
                   </div>
                   <div>
                     <span className="text-[11px] font-semibold text-sky-400 tracking-wider uppercase">
                       Capa 01 · Perímetro Web
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                       Landing Pages de Alto Rendimiento
                     </h3>
                   </div>
                 </div>
 
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/60 border border-white/10 backdrop-blur-md">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                  <span className="text-xs text-white font-semibold">100/100 Lighthouse</span>
-                </div>
+                <Badge variant="emerald" className="text-xs">
+                  100/100 Lighthouse
+                </Badge>
               </div>
 
               <p className="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
@@ -302,7 +307,7 @@ export const SolucionesIaView: React.FC<SolucionesIaViewProps> = ({ onNavigateTa
               <div className="p-3.5 rounded-xl bg-slate-950/60 border border-white/5 flex flex-col">
                 <span className="text-[11px] text-slate-400">Core Web Vitals</span>
                 <span className="text-lg font-bold text-sky-300 mt-1">0.12s LCP</span>
-                <span className="text-[10px] text-slate-400 mt-0.5">Renderizado instantáneo</span>
+                <span className="text-[10px] text-slate-400 mt-0.5">Render instantáneo</span>
               </div>
               <div className="p-3.5 rounded-xl bg-slate-950/60 border border-white/5 flex flex-col">
                 <span className="text-[11px] text-slate-400">Conversión</span>
@@ -315,24 +320,20 @@ export const SolucionesIaView: React.FC<SolucionesIaViewProps> = ({ onNavigateTa
                 <span className="text-[10px] text-slate-400 mt-0.5">Baja latencia</span>
               </div>
             </div>
-          </motion.div>
+          </Card>
 
-          {/* CAPA 2: Punto de Venta POS */}
-          <motion.div
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.2 }}
-            className="rounded-3xl vision-glass p-6 sm:p-8 flex flex-col justify-between text-left"
-          >
+          {/* CAPA 2 */}
+          <Card className="p-6 sm:p-8 flex flex-col justify-between border-white/10 bg-slate-900/50 hover:border-white/20 transition-all">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-11 h-11 rounded-2xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300">
-                  <span className="material-symbols-outlined text-[24px]">point_of_sale</span>
+                <div className="w-11 h-11 rounded-xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300">
+                  <Database className="w-6 h-6" />
                 </div>
                 <div>
                   <span className="text-[11px] font-semibold text-purple-300 tracking-wider uppercase">
                     Capa 02 · Transacciones
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">POS Inteligente</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">POS Inteligente</h3>
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
@@ -344,41 +345,37 @@ export const SolucionesIaView: React.FC<SolucionesIaViewProps> = ({ onNavigateTa
             <div className="space-y-2 pt-4 border-t border-white/10">
               <div className="p-3 rounded-xl bg-slate-950/60 border border-white/5 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2 text-white">
-                  <span className="material-symbols-outlined text-[18px] text-sky-400">wifi_off</span>
+                  <WifiOff className="w-4 h-4 text-sky-400" />
                   <span>Modo Offline Activo</span>
                 </div>
-                <span className="text-[11px] text-sky-300 px-2.5 py-0.5 rounded-full bg-sky-500/15 border border-sky-400/30 font-semibold">
+                <Badge variant="glow" className="text-[10px]">
                   Zero-Data-Loss
-                </span>
+                </Badge>
               </div>
               <div className="p-3 rounded-xl bg-slate-950/60 border border-white/5 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2 text-white">
-                  <span className="material-symbols-outlined text-[18px] text-purple-300">sync_saved_locally</span>
+                  <Activity className="w-4 h-4 text-purple-300" />
                   <span>Auto-Sync Vectorial</span>
                 </div>
-                <span className="text-[11px] text-purple-300 px-2.5 py-0.5 rounded-full bg-purple-500/15 border border-purple-400/30 font-semibold">
+                <Badge variant="purple" className="text-[10px]">
                   &lt; 300ms
-                </span>
+                </Badge>
               </div>
             </div>
-          </motion.div>
+          </Card>
 
-          {/* CAPA 3: Procesos Críticos */}
-          <motion.div
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.2 }}
-            className="rounded-3xl vision-glass p-6 sm:p-8 flex flex-col justify-between text-left"
-          >
+          {/* CAPA 3 */}
+          <Card className="p-6 sm:p-8 flex flex-col justify-between border-white/10 bg-slate-900/50 hover:border-white/20 transition-all">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-11 h-11 rounded-2xl bg-sky-500/20 border border-sky-400/30 flex items-center justify-center text-sky-300">
-                  <span className="material-symbols-outlined text-[24px]">precision_manufacturing</span>
+                <div className="w-11 h-11 rounded-xl bg-sky-500/20 border border-sky-400/30 flex items-center justify-center text-sky-300">
+                  <Cpu className="w-6 h-6" />
                 </div>
                 <div>
                   <span className="text-[11px] font-semibold text-sky-400 tracking-wider uppercase">
                     Capa 03 · Operaciones
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">Procesos Críticos</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">Procesos Críticos</h3>
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
@@ -392,31 +389,27 @@ export const SolucionesIaView: React.FC<SolucionesIaViewProps> = ({ onNavigateTa
                 <span>Detección de Desvíos</span>
                 <span className="text-sky-300 font-semibold">99.8% Eficacia</span>
               </div>
-              <div className="w-full bg-slate-900 rounded-full h-2 overflow-hidden">
-                <div className="bg-gradient-to-r from-sky-400 to-indigo-400 h-full rounded-full w-[94%] shadow-[0_0_8px_rgba(56,189,248,0.5)]"></div>
+              <div className="w-full bg-slate-950 rounded-full h-2 overflow-hidden">
+                <div className="bg-gradient-to-r from-sky-400 to-indigo-400 h-full rounded-full w-[94%] shadow-[0_0_8px_rgba(56,189,248,0.5)]" />
               </div>
               <span className="text-[11px] text-slate-400 pt-1">
                 Monitoreo continuo de eventos por segundo (EPS)
               </span>
             </div>
-          </motion.div>
+          </Card>
 
-          {/* CAPA 4: CRM & ERP Cognitivos */}
-          <motion.div
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.2 }}
-            className="rounded-3xl vision-glass p-6 sm:p-8 flex flex-col justify-between text-left"
-          >
+          {/* CAPA 4 */}
+          <Card className="p-6 sm:p-8 flex flex-col justify-between border-white/10 bg-slate-900/50 hover:border-white/20 transition-all">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-11 h-11 rounded-2xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300">
-                  <span className="material-symbols-outlined text-[24px]">dashboard_customize</span>
+                <div className="w-11 h-11 rounded-xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300">
+                  <BarChart3 className="w-6 h-6" />
                 </div>
                 <div>
                   <span className="text-[11px] font-semibold text-purple-300 tracking-wider uppercase">
                     Capa 04 · Gestión Central
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">CRM & ERP Cognitivos</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">CRM &amp; ERP Cognitivos</h3>
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
@@ -435,23 +428,19 @@ export const SolucionesIaView: React.FC<SolucionesIaViewProps> = ({ onNavigateTa
                 <span className="text-xl font-extrabold text-white">±2.1% err</span>
               </div>
             </div>
-          </motion.div>
+          </Card>
         </div>
       </section>
 
-      {/* CALL TO ACTION: (Se eliminaron módulos de integración técnica y sólo queda ver esquema SaaS como se pidió) */}
-      <section className="px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto w-full mb-16">
-        <motion.div
-          whileHover={{ scale: 1.01 }}
-          transition={{ duration: 0.2 }}
-          className="relative rounded-3xl vision-glass-elevated p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6"
-        >
+      {/* CALL TO ACTION */}
+      <section className="px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto w-full pb-10">
+        <Card className="p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 border-white/15 bg-slate-950/80 shadow-2xl backdrop-blur-2xl">
           <div className="flex flex-col space-y-2 text-center md:text-left">
-            <span className="text-xs font-semibold text-sky-400 tracking-widest uppercase">
+            <Badge variant="glow" className="w-fit text-xs mx-auto md:mx-0">
               Despliegue Inmediato
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-              ¿Listo para orquestar tu arquitectura con IA?
+            </Badge>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              ¿Listo para poner en marcha tu infraestructura cloud?
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed">
               Nuestros arquitectos de software diseñan un plan de implementación a medida, con despliegue en nube
@@ -459,15 +448,18 @@ export const SolucionesIaView: React.FC<SolucionesIaViewProps> = ({ onNavigateTa
             </p>
           </div>
 
-          <div className="flex items-center justify-center shrink-0">
-            <button
+          <div className="flex items-center justify-center shrink-0 w-full sm:w-auto">
+            <Button
+              variant="glow"
+              size="lg"
               onClick={() => onNavigateTab('planes-precios-saas')}
-              className="px-8 py-3.5 rounded-full btn-glass-primary text-white font-bold text-sm transition-all cursor-pointer whitespace-nowrap active:scale-95 shadow-xl"
+              className="w-full sm:w-auto font-bold text-sm gap-2"
             >
-              Ver Esquema SaaS
-            </button>
+              <span>Ver Esquema SaaS</span>
+              <ArrowRight className="w-4 h-4" />
+            </Button>
           </div>
-        </motion.div>
+        </Card>
       </section>
     </div>
   );

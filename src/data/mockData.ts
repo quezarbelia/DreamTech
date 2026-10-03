@@ -36,13 +36,13 @@ export const INVITATION_TIERS: InvitationTier[] = [
     name: 'Premier',
     badge: 'VIP Total',
     price: 1800,
-    description: 'Para recepciones de alto impacto con pases QR y cinemáticas refractivas visionOS.',
+    description: 'Para recepciones de alto impacto con pases QR y diseño interactivo elegante.',
     features: [
       { text: 'Todo lo incluido en paquete Plus', included: true },
       { text: 'Confirmación RSVP & Pase QR', included: true, highlight: true },
-      { text: 'Animaciones de cristal dinámicas', included: true },
+      { text: 'Efectos visuales fluidos y elegantes', included: true },
       { text: '1 Imagen de fondo panorámica adaptativa', included: true },
-      { text: 'Hasta 15 fotos en carrusel cinemático', included: true },
+      { text: 'Hasta 15 fotos en carrusel interactivo', included: true },
     ],
   },
 ];
@@ -236,13 +236,13 @@ export const SAAS_PLAN_CARDS: SaasPlanCard[] = [
     tag: 'Core Operativo',
     icon: 'account_tree',
     title: 'ERP Integral Modular',
-    description: 'Arquitectura modular: Ventas + Inventarios + Facturación CFDI. Escala de acuerdo al crecimiento empresarial.',
+    description: 'Arquitectura modular: Ventas + Inventarios + Cobros y Catálogo. Escala de acuerdo al crecimiento empresarial.',
     price: 3000,
     priceSuffix: 'MXN base / mes',
     extraNote: '+$1,000 MXN/mes por módulo adicional',
     features: [
       '1 modificación estructural mensual',
-      'Facturación CFDI 4.0 automática',
+      'Control de inventario y cobros automáticos',
       'Multi-sucursal y matriz consolidada',
       'Control fino de accesos y roles (RBAC)',
     ],
@@ -253,7 +253,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     id: 'faq-1',
     question: '¿Cómo opera el cobro a mes vencido exactamente?',
-    answer: 'Tu software entra en producción y tu equipo lo utiliza activamente durante los primeros 30 días naturales sin cobro previo. Al término del periodo mensual, el sistema emite el reporte de uso junto a la factura fiscal CFDI 4.0 por el importe exacto convenido.',
+    answer: 'Tu software entra en producción y tu equipo lo utiliza activamente durante los primeros 30 días naturales sin cobro previo. Al término del periodo mensual, se emite el reporte de uso para liquidar únicamente el importe exacto convenido.',
   },
   {
     id: 'faq-2',
